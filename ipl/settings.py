@@ -94,11 +94,14 @@ WSGI_APPLICATION = 'ipl.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dlkrkqkfnuf9m',
+        'HOST': 'ec2-54-205-248-255.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'rlifqxdpjqblnr',
+        'PASSWORD': '00fb053c9d3012eb3d5821643340300138388269d2ce34ea616d447fe66cfc3c'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -139,4 +142,4 @@ USE_TZ = True
 
 import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
