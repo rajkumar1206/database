@@ -67,10 +67,10 @@ class add_player(APIView):
             if data["team"] != "Not Known":
                 tm = Team.objects.get(pk=data["team"])
                 print(tm)
-                player = Player(first_name=data["first_name"], last_name=data["last_name"], date_of_birth=data["date_of_birth"], team=tm)
+                player = Player(first_name=data["first_name"], last_name=data["last_name"], date_of_birth=data["date_of_birth"], nationality = data["nationality"], team=tm)
                 player.save()
             else:
-                player = Player(first_name=data["first_name"], last_name=data["last_name"], date_of_birth=data["date_of_birth"], team=None)
+                player = Player(first_name=data["first_name"], last_name=data["last_name"], date_of_birth=data["date_of_birth"], nationality = data["nationality"], team=None)
                 player.save()
 
             return Response({"status": "success"}, status=201)
@@ -108,11 +108,11 @@ class update_player(APIView):
                     tm = Team.objects.get(pk=data["team"])
 
                     Player.objects.filter(pk=pk).update(first_name=data["first_name"], last_name=data["last_name"],
-                                                                            date_of_birth=data["date_of_birth"], team=tm)
+                                                                            date_of_birth=data["date_of_birth"], nationality = data["nationality"], team=tm)
                     return Response({"status": "success", "data": dictionary_model}, status=201)
                 else:
                     Player.objects.filter(pk=pk).update(first_name=data["first_name"], last_name=data["last_name"],
-                                                                            date_of_birth=data["date_of_birth"], team=None)
+                                                                            date_of_birth=data["date_of_birth"], nationality = data["nationality"], team=None)
                     return Response({"status": "success", "data": dictionary_model}, status=201)
 
             else: 
